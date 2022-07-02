@@ -135,7 +135,6 @@ body {
   .heading {
     width: 410px;
     height: 150px;
-    border: 1px solid red;
   }
   .heading > h1 {
     font-size: 44px;
