@@ -104,6 +104,7 @@ body {
   background-color: #273549;
   width: 211px;
   height: 40px;
+  padding: 10px;
   color: #55f991;
   font-family: "Inter";
   font-style: normal;
@@ -124,4 +125,23 @@ body {
   position: absolute;
   top: 0px;
   right: 0px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .heading {
+    width: 480px;
+    height: 150px;
+  }
+  .heading > h1 {
+    font-size: 54px;
+  }
+  .password-container > p {
+    width: max-content;
+    font-size: 14px;
+  }
+  .btn:active {
+    box-shadow: 0 0 15px black;
+    background-color: #10b981;
+    color: #ffffff;
+  }
 }
