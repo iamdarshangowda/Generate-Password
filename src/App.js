@@ -2,15 +2,17 @@ import { useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [password, setPassword] = useState({
-    password1: "",
-    password2: "",
-  });
+  const [password, setPassword] = useState(
+    JSON.parse(localStorage.getItem("pass")) || {
+      password1: "",
+      password2: "",
+    }
+  );
   const [passLength, setPassLength] = useState(6);
-  const textAreaRef = useRef(null);
+  const passwordOneRef = useRef(null);
+  const passwordTwoRef = useRef(null);
 
   function handleLength(e) {
-    console.log(e.target.value);
     setPassLength(e.target.value);
   }
 
@@ -31,11 +33,20 @@ function App() {
       password1: p1,
       password2: p2,
     }));
+    localStorage.setItem(
+      "pass",
+      JSON.stringify({ password1: p1, password2: p2 })
+    );
   }
 
-  function handleCopy(e) {
-    textAreaRef.current.select();
-    document.execCommand("copy");
+  function handleP1Copy() {
+    navigator.clipboard.writeText(passwordOneRef.current.innerHTML);
+    alert("Password copied");
+  }
+
+  function handleP2Copy() {
+    navigator.clipboard.writeText(passwordTwoRef.current.innerHTML);
+    alert("Password copied");
   }
 
   return (
@@ -64,10 +75,10 @@ function App() {
       </div>
       <hr />
       <div className="password-container">
-        <p onClick={handleCopy} ref={textAreaRef}>
+        <p onClick={handleP1Copy} ref={passwordOneRef}>
           {password.password1}
         </p>
-        <p onClick={handleCopy} ref={textAreaRef}>
+        <p onClick={handleP2Copy} ref={passwordTwoRef}>
           {password.password2}
         </p>
       </div>
