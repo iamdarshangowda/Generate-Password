@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="heading">
+        <h1 style={{ color: "#FFFFFF" }}>Generate a</h1>
+        <h1 style={{ color: "#4ADF86" }}>random password</h1>
+        <p>Never use an insecure password again.</p>
+      </div>
+      <div className="btn-container">
+        <h3>Select Password Length:</h3>
+        <div>
+          <button className="btn">6</button>
+          <button className="btn">10</button>
+          <button className="btn">14</button>
+        </div>
+        <button className="btnGP">Generate Password</button>
+      </div>
+      <hr />
+      <div className="password-container">
+        <p>password 1</p>
+        <p>password 2</p>
+      </div>
     </div>
   );
 }
