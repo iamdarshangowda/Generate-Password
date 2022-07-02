@@ -113,3 +113,15 @@ body {
   text-align: center;
   margin: 10px;
 }
+
+.p1-container,
+.p2-container {
+  position: relative;
+}
+
+.copy1,
+.copy2 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
